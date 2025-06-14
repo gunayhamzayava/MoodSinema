@@ -1,4 +1,6 @@
-import './Home.css'
+import { Link } from "react-router-dom";
+import "./Home.css";
+
 document.addEventListener("mousemove", (e) => {
   const cursor = { x: e.clientX, y: e.clientY };
   const cards = document.querySelectorAll(".mood-card");
@@ -123,13 +125,15 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="feature">
-            <div className="feature-icon">📊</div>
-            <h3 className="feature-title">Mood Analytics</h3>
-            <p className="feature-description">
-              Discover patterns in your emotional viewing habits
-            </p>
-          </div>
+          <Link to={"/mood-analytics"}>
+            <div className="feature">
+              <div className="feature-icon">📊</div>
+              <h3 className="feature-title">Mood Analytics</h3>
+              <p className="feature-description">
+                Discover patterns in your emotional viewing habits
+              </p>
+            </div>
+          </Link>
         </section>
       </main>
     </>
