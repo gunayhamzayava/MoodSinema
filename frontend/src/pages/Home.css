@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%);
+    min-height: 100vh;
+    color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/* Main content */
+.main-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.mood-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.mood-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mood-subtitle {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Mood grid */
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.mood-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.mood-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.mood-card:hover::before {
+    left: 100%;
+}
+
+.mood-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mood-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.mood-card:hover .mood-emoji {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.mood-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.mood-description {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Special mood card colors */
+.mood-card.happy {
+    border-color: rgba(255, 193, 7, 0.3);
+}
+
+.mood-card.happy:hover {
+    box-shadow: 0 20px 40px rgba(255, 193, 7, 0.2);
+}
+
+.mood-card.sad {
+    border-color: rgba(100, 149, 237, 0.3);
+}
+
+.mood-card.sad:hover {
+    box-shadow: 0 20px 40px rgba(100, 149, 237, 0.2);
+}
+
+.mood-card.excited {
+    border-color: rgba(255, 99, 132, 0.3);
+}
+
+.mood-card.excited:hover {
+    box-shadow: 0 20px 40px rgba(255, 99, 132, 0.2);
+}
+
+.mood-card.calm {
+    border-color: rgba(75, 192, 192, 0.3);
+}
+
+.mood-card.calm:hover {
+    box-shadow: 0 20px 40px rgba(75, 192, 192, 0.2);
+}
+
+.mood-card.romantic {
+    border-color: rgba(255, 105, 180, 0.3);
+}
+
+.mood-card.romantic:hover {
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
+}
+
+.mood-card.adventurous {
+    border-color: rgba(255, 165, 0, 0.3);
+}
+
+.mood-card.adventurous:hover {
+    box-shadow: 0 20px 40px rgba(255, 165, 0, 0.2);
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* Features preview */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.feature-description {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+    }
+
+    .mood-title {
+        font-size: 2rem;
+    }
+
+    .mood-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .header {
+        padding: 1rem;
+    }
+
+    .main-content {
+        padding: 0 1rem;
+    }
+}
